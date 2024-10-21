@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import TextTransition, { presets } from 'react-text-transition';
-import { Typewriter, useTypewriter } from 'react-simple-typewriter';
 
 const TEXTS = ['Cars', 'Bikes', 'Customisation'];
 

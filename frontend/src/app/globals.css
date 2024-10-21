@@ -173,3 +173,7 @@
   object-fit: cover;
   z-index: -1;
 }
+
+#navbarSearchBtn{
+  background-color: transparent;
+}
