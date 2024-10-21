@@ -3,7 +3,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="text-white bg-gray-700 navbar h-[6vh]">
+    <nav className="text-white navbar h-[6vh]">
       <div className="w-full mx-auto">
         <div className="flex items-center w-full m-0">
           <ul className="flex justify-start w-1/3 gap-8 navbar-menu">
