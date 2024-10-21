@@ -11,7 +11,7 @@ const PreLoader = () => {
   React.useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      1000,
+      2000,
     );
     return () => clearTimeout(intervalId);
   }, []);
