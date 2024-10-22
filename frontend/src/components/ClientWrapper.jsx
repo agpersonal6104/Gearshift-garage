@@ -8,7 +8,7 @@ export default function ClientWrapper({ children }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 5500);
 
     return () => clearTimeout(timer);
   }, []);
