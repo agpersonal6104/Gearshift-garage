@@ -14,6 +14,7 @@ const Home = () => {
 
       <div className='h-[100vh] bg-black w-full m-0'>
         <h1>Hello</h1>
+        
       </div>
       
     </div>
