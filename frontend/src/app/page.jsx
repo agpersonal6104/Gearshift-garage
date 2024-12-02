@@ -14,7 +14,7 @@ const Home = () => {
 
       <div className='h-[100vh] bg-black w-full m-0'>
         <h1>Hello</h1>
-        
+        <p>Your next destination starts now.</p>
       </div>
       
     </div>
