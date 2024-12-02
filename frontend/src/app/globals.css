@@ -187,3 +187,113 @@
   height: 100%;
   z-index: -1;
 }
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #b3b3b3;
+  
+}
+
+.cta-button {
+  background-color: #d32f2f;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff4c4c;
+}
+
+.header {
+  background-color: #1c1c1c;
+  color: #FFFFFF;
+}
+
+.card {
+  background-color: #1c1c1c;
+  border: 1px solid #333333;
+  color: #b3b3b3;
+}
+
+/* BG of landing page*/
+.landing-page {
+  background-image: url('https://i.pinimg.com/564x/c0/15/e1/c015e142f748a21cb386f30effa0c8a8.jpg'); /* Adjust the path as needed */
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease-in; 
+}
+.landing-page.fade-in {
+  opacity: 1; /* Makes the image visible after the transition */
+}
+/* Transitions of landing page text */
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px); /* Start from below */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateX(0); /* End at original position */
+    opacity: 1; /* End visible */
+  }
+}
+
+.slide-in {
+  animation: slideIn 1.2s ease forwards; /* Apply the animation */
+}
+
+/* For Home page */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* Ensure video is behind the content */
+}
+
+.content {
+  position:absolute;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  top: 50%;
+  /* transform: translateY(-50%); */
+}
+
+.transition-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s ease-out, opacity 1s ease-out; /* Add smooth transitions */
+}
+
+.fade-out {
+  transition: opacity 0.5s ease-out;
+  transition-duration: 3s;
+  opacity: 1;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+.brand-menu{
+  background-image: url('C:\Users\hp\OneDrive\Desktop\CODES\PROJECTS\THE MACHINES\the-machines\src\assets\background.jpg');
+}
