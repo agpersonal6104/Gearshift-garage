@@ -33,9 +33,11 @@ const Home = () => {
       
         <div className='w-full'>
           
-          <div className='flex h-[45vh]'>
+          <div className='flex h-[45vh] gap-6'>
             
-            <div className='w-1/3 px-2'></div>
+          <div className='items-center justify-center flex-shrink-0 w-1/3 m-4 mx-auto my-auto overflow-hidden text-center transition-transform duration-300 ease-in-out shadow-lg rounded-xl hover:shadow-2xl'>
+              <img src="Ferrari250GTO.jpg" alt="Ferrari250GTO" className='object-cover transition-transform duration-500 ease-in-out rounded-xl tranform hover:scale-110' />
+            </div>
             
             <div className='w-2/3 px-6 border-l-2 border-white'>
             <h2 className='pt-4 pb-16 text-5xl text-white underline'>1-0-1</h2>
@@ -48,15 +50,15 @@ const Home = () => {
         
         <div className='w-full'>
           
-          <div className='flex h-[45vh]'>
+          <div className='flex h-[45vh] gap-6'>
             
             <div className='w-2/3 px-6 border-r-2 border-white'>
             <h2 className='pt-4 pb-16 text-5xl text-right text-white underline'>CLASSIC</h2>
             <p className='py-8 text-5xl italic text-right text-white'>SMALL DESCRIPTION ON CLASSIC MODELS.</p>
             </div>
             
-            <div className='w-1/3 px-6 mx-auto my-auto'>
-              <img src="Ferrari250GTO.jpg" alt="Ferrari250GTO" className='rounded-2xl' />
+            <div className='items-center justify-center flex-shrink-0 w-1/3 m-4 mx-auto my-auto overflow-hidden text-center transition-transform duration-300 ease-in-out shadow-lg rounded-xl hover:shadow-2xl'>
+              <img src="Ferrari250GTO.jpg" alt="Ferrari250GTO" className='object-cover transition-transform duration-500 ease-in-out rounded-xl tranform hover:scale-110' />
             </div>
             
           </div>
