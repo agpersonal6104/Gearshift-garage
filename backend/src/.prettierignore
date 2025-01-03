@@ -1,0 +1,7 @@
+# where not to apply prettier syntax
+*.env
+.env
+.env.*
+/.vscode
+/node_modules
+./dist
