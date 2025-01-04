@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import jwt from "jsonwebtoken"; //for refreshtoken and accesstoken
-import bycrypt from "bcrypt"; //for password hashing
+import bcrypt from "bcrypt"; //for password hashing
 // mongodb save model in bson data
 const userSchema = new Schema(
   {
@@ -36,15 +36,15 @@ const userSchema = new Schema(
 );
 
 // mongoose documentation - mongoose hooks
-userSchema.pre("save", (next) => {
-  if (!this.isModified(password)) return next();
-  this.password = bycrypt.hash(this.password, 12);
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+  this.password = await bcrypt.hash(this.password, 12);
   next();
 });
 
 // custom methods
 userSchema.methods.isPasswordCorrect = async function (password) {
-  return await bycrypt.compare(password, this.password);
+  return await bcrypt.compare(password, this.password);
 };
 
 userSchema.methods.generateAccesstoken = function () {
