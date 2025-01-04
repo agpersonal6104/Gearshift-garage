@@ -1,1 +1,1 @@
-export const DB_NAME="gearshift-garage";
+export const DB_NAME = "gearshift-garage";
