@@ -1,5 +1,5 @@
 import dotenv from "dotenv"
-
+import {app} from './app.js'
 import connectingDB from "./db/index.js";
 
 dotenv.config({

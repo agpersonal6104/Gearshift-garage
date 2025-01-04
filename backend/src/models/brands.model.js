@@ -5,7 +5,7 @@ const brandSchema = new Schema(
     name: {
       type: String,
       required: true,
-      unique:true
+      unique: true,
     },
     logo: {
       type: String,
@@ -15,8 +15,7 @@ const brandSchema = new Schema(
     },
     country_of_origin: {
       type: String,
-    }
-    
+    },
   },
   { timestamps: true }
 );
