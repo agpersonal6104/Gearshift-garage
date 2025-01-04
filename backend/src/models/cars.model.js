@@ -28,7 +28,10 @@ const carSchema=new Schema({
     category_id:{
         type: Schema.Types.ObjectId,
         ref:'Category'
-    }
+    },
+    images:[{
+        type:String //cloudinary
+    }]
 },{timestamps:true})
 
 export const Car= mongoose.model("Car",carSchema)
