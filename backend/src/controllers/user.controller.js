@@ -4,7 +4,6 @@ import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
-import { userInfo } from "os";
 
 const generateAccessAndRefreshTokens = async (userId) => {
   try {
@@ -167,7 +166,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 // code that will run to refresh access token
-const refreshAccessToken = asyncHandler(async (res, req) => {
+const refreshAccessToken = asyncHandler(async (req, res) => {
   const incomingRefreshToken =
     req.cookies.refreshToken || req.body.refreshToken;
 
@@ -180,8 +179,10 @@ const refreshAccessToken = asyncHandler(async (res, req) => {
       incomingRefreshToken,
       process.env.REFRESH_TOKEN_SECRET
     );
+    // console.log(decodedToken)
 
-    const user = await User.findById(decoded?._id);
+    const user = await User.findById(decodedToken?._id);
+    console.log(user);
 
     if (!user) {
       throw new ApiError(401, "Invalid Refresh Token");
@@ -219,7 +220,7 @@ const refreshAccessToken = asyncHandler(async (res, req) => {
 
 const changeCurrentPassword = asyncHandler(async (req, res) => {
   const { oldpassword, newpassword } = req.body;
-
+  console.log(req.body)
   const user = await User.findById(req.user?._id);
   const isPasswordCorrect = await user.isPasswordCorrect(oldpassword);
 
@@ -236,9 +237,11 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
 });
 
 const getCurrentUser = asyncHandler(async (req, res) => {
+  // console.log(req.user)
+  // req has user
   return res
     .status(200)
-    .json(200, req.user, "Current User fetched successfully!");
+    .json(new ApiResponse(200, req.user, "Current User fetched successfully!"));
 });
 
 const updateAccountDetails = asyncHandler(async (req, res) => {
@@ -260,36 +263,35 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, user, "Account details updated successfully"));
 });
 
-const updateProfilePic=asyncHandler(async(req,res)=>{
+const updateProfilePic = asyncHandler(async (req, res) => {
   // we access of file because of multer in req object in req.file
   // we can access it from there and update it.
-  const newProfilePicLocalPath=req.file?.path
+  const newProfilePicLocalPath = req.file?.path;
 
-  if(!newProfilePicLocalPath){
-    throw new ApiError(400,"New profile pic not found")
+  if (!newProfilePicLocalPath) {
+    throw new ApiError(400, "New profile pic not found");
   }
 
-  const newProfilePath=await uploadOnCloudinary(newProfilePicLocalPath)
+  const newProfilePath = await uploadOnCloudinary(newProfilePicLocalPath);
 
-  if(!newProfilePath){
-    throw new ApiError(400,"Error while uploading the file")
+  if (!newProfilePath) {
+    throw new ApiError(400, "Error while uploading the file");
   }
 
-  const user=await User.findByIdAndUpdate(req.user?._id,
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
     {
-      $set:{
-        profile_pic:newProfilePath.url
-      }
+      $set: {
+        profile_pic: newProfilePath.url,
+      },
     },
-    {new:true}
-  ).select("-password")
+    { new: true }
+  ).select("-password");
 
   return res
-  .status(200)
-  .json(
-    new ApiResponse(200,user,"Profile Image Updated")
-  )
-})
+    .status(200)
+    .json(new ApiResponse(200, user, "Profile Image Updated"));
+});
 
 export {
   registerUser,
@@ -299,5 +301,5 @@ export {
   changeCurrentPassword,
   getCurrentUser,
   updateProfilePic,
-  updateAccountDetails
+  updateAccountDetails,
 };
