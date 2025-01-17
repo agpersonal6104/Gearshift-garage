@@ -4,14 +4,22 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const addBrand = asyncHandler(async (req, res) => {
-  const { name } = req.body;
+  const { name, description, country_of_origin } = req.body;
+  if (!name) {
+    throw new ApiError(400, "Brand details are required");
+  }
   const logo = req.file?.path;
 
-  if (!name) {
-    throw new ApiError(400, "Brand name is required");
+  if (!logo) {
+    throw new ApiError(400, "Logo is required");
   }
 
-  const brand = await Brand.create({ name, logo });
+  const brand = await Brand.create({
+    name,
+    logo,
+    description,
+    country_of_origin,
+  });
 
   return res
     .status(201)
@@ -19,6 +27,4 @@ const addBrand = asyncHandler(async (req, res) => {
 });
 
 // Similar to cars: CRUD operations for Brands
-export {
-    addBrand
-}
+export { addBrand };

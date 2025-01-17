@@ -19,8 +19,14 @@ app.use(cookieParser())
 
 //routes
 import userRouter from './routes/user.routes.js'
-
+import carRouter from './routes/car.routes.js'
+import brandRouter from './routes/brands.routes.js'
+import categoryRouter from './routes/category.routes.js'
 //routes declaration
 app.use("/api/v1/users",userRouter)
+app.use("/api/v1/cars",carRouter)
+app.use("/api/v1/brands",brandRouter)
+app.use("/api/v1/category",categoryRouter)
+
 // http://localhost:8000/users/
 export {app}
