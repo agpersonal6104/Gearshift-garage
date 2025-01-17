@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
-import { Brand } from "./brands.model";
-
+import { Brand } from "./brands.model.js";
+import {Category} from "./categories.js"
 const carSchema = new Schema(
   {
     name: {
