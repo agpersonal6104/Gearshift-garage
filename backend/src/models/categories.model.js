@@ -5,6 +5,8 @@ const carCategorySchema = new Schema(
     name: {
       type: String,
       required: true,
+      unique:true,
+      index:true
     },
     description: {
       type: String,
