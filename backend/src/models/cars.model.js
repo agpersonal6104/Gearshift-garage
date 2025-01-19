@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { Brand } from "./brands.model.js";
-import {Category} from "./categories.js"
+import {Category} from "./categories.model.js"
 const carSchema = new Schema(
   {
     name: {
@@ -24,11 +24,11 @@ const carSchema = new Schema(
     },
     brand_id: {
       type: Schema.Types.ObjectId,
-      ref: "Brand",
+      ref: Brand,
     },
     category_id: {
       type: Schema.Types.ObjectId,
-      ref: "Category",
+      ref: Category,
     },
     images: [
       {

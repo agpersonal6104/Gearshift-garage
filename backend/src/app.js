@@ -28,5 +28,5 @@ app.use("/api/v1/cars",carRouter)
 app.use("/api/v1/brands",brandRouter)
 app.use("/api/v1/category",categoryRouter)
 
-// http://localhost:8000/users/
+// http://localhost:8000/api/v1users/
 export {app}
