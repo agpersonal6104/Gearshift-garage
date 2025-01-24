@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { brands } from '../constants'; // Import the brands array from constants.js
 import '../app/globals.css';
 const BrandCard = ({ name, icon }) => (
-  <div className="w-[300px] h-[400px] flex-shrink-0 m-4 shadow-lg rounded-lg items-center justify-center text-center hover:shadow-2xl transition-transform duration-300 ease-in-out overflow-hidden">
+  <div className="w-[500px] h-[780px] flex-shrink-0 m-4 shadow-lg rounded-lg items-center justify-center text-center hover:shadow-2xl transition-transform duration-300 ease-in-out overflow-hidden">
     <img src={icon} alt={name} className="w-[100%] h-[100%] object-cover rounded-md transition-transform duration-500 ease-in-out tranform hover:scale-110" />
   </div>
 );

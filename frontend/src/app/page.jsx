@@ -25,7 +25,9 @@ const Home = () => {
         </div>
       </div>
 
-      <BrandMenu />
+      <div className='w-full m-0 mx-auto'>
+        <BrandMenu />
+      </div>
 
       <div className='w-full m-0'>
         
