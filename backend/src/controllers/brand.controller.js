@@ -10,7 +10,7 @@ const addBrand = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Brand details are required");
   }
 
-  const existingBrand = await User.findOne({
+  const existingBrand = await Brand.findOne({
     $or: [{ name }],
   });
 
