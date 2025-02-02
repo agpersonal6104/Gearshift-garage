@@ -58,13 +58,11 @@ const getCars = asyncHandler(async (req, res) => {
 });
 
 // Get a single car by ID
-const getCarById = asyncHandler(async (req, res) => {
-  const { id } = req.params;
+const getCarByName = asyncHandler(async (req, res) => {
+  const { name } = req.params;
 
-  const car = await Car.findById(id)
-    .populate("brand_id", "name")
-    .populate("category_id", "name");
-
+  const car = await Car.findOne({ name });
+    
   if (!car) {
     throw new ApiError(404, "Car not found");
   }
@@ -76,7 +74,7 @@ const getCarById = asyncHandler(async (req, res) => {
 
 // Update a car
 const updateCar = asyncHandler(async (req, res) => {
-  const { id } = req.body;
+  const { name } = req.body;
   const { brand_name, category_name, ...updates } = req.body;
 
   const car = await Car.findById(id);
@@ -131,4 +129,4 @@ const deleteCar = asyncHandler(async (req, res) => {
 });
 
 
-export { addCar, getCars, getCarById, updateCar, deleteCar };
+export { addCar, getCars, getCarByName, updateCar, deleteCar };
