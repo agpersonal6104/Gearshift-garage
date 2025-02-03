@@ -1,10 +1,10 @@
 import {Router} from 'express';
-import { verifyJWT } from '../middlewares/auth.middleware.js';
+import { verifyJWT } from '../src/middlewares/auth.middleware.js';
 import {
     addBrand,
     removeBrand
-} from '../controllers/brand.controller.js'
-import { upload } from '../middlewares/multer.middleware.js';
+} from '../src/controllers/brand.controller.js'
+import { upload } from '../src/middlewares/multer.middleware.js';
 
 const router=Router()
 // middleware is applied to all the routes

@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { verifyJWT } from "../src/middlewares/auth.middleware.js";
 import {
   addCategory,
   removeCategory,
   searchCategories
-} from "../controllers/categories.controller.js";
+} from "../src/controllers/categories.controller.js";
 
 const router = Router();
 // middleware is appleid to all the routes

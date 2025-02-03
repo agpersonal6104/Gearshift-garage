@@ -1,7 +1,7 @@
 import {Router} from 'express';
-import { verifyJWT } from '../middlewares/auth.middleware.js';
-import { upload } from '../middlewares/multer.middleware.js';
-import { addCar,getCars,deleteCar,updateCar } from '../controllers/car.controller.js';
+import { verifyJWT } from '../src/middlewares/auth.middleware.js';
+import { upload } from '../src/middlewares/multer.middleware.js';
+import { addCar,getCars,deleteCar,updateCar } from '../src/controllers/car.controller.js';
 
 const router=Router()
 // middleware is appleid to all the routes

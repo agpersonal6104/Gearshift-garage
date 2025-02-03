@@ -8,9 +8,9 @@ import {
   changeCurrentPassword,
   updateProfilePic,
   updateAccountDetails,
-} from "../controllers/user.controller.js";
-import { upload } from "../middlewares/multer.middleware.js";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+} from "../src/controllers/user.controller.js";
+import { upload } from "../src/middlewares/multer.middleware.js";
+import { verifyJWT } from "../src/middlewares/auth.middleware.js";
 
 const router = Router();
 
