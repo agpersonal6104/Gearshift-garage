@@ -1,11 +1,12 @@
-"use client"
-
+"use client";
 import { useRef } from "react"
-import BrandMenu from "@/components/BrandMenu"
+import dynamic from "next/dynamic"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import Image from "next/image"
+import { ButtonHome } from "@/components/ButtonA"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/Card"
+
+// Dynamically import BrandMenu with no SSR
+const BrandMenu = dynamic(() => import("@/components/BrandMenu"), { ssr: false })
 
 const carBrands = [
   { id: 1, name: "BMW", image: "/placeholder.svg?height=200&width=300" },
@@ -27,7 +28,7 @@ const categories = [
   { title: "FASTEST", description: "SMALL DESCRIPTION ON FASTEST MODELS.", image: "2021-Koenigsegg-Jesko-Absolut.jpg" },
 ]
 
-const Home = () => {
+export default function Home() {
   const sliderRef = useRef(null)
 
   const scroll = (direction) => {
@@ -50,7 +51,7 @@ const Home = () => {
               muted
               loop
               playsInline
-              src="Homevideo.mp4"
+              src="/Homevideo.mp4"
               id="backgroundHome"
               className="absolute inset-0 object-cover w-full h-full"
             />
@@ -71,14 +72,14 @@ const Home = () => {
         <div className="container px-4 mx-auto">
           <h2 className="mb-8 text-4xl font-bold text-white">Featured Brands</h2>
           <div className="relative">
-            <Button
+            <ButtonHome
               variant="ghost"
               size="icon"
               className="absolute left-0 z-10 text-white -translate-y-1/2 top-1/2 bg-white/10 hover:bg-white/20"
               onClick={() => scroll("left")}
             >
               <ChevronLeft className="w-6 h-6" />
-            </Button>
+            </ButtonHome>
 
             <div
               ref={sliderRef}
@@ -111,14 +112,14 @@ const Home = () => {
               ))}
             </div>
 
-            <Button
+            <ButtonHome
               variant="ghost"
               size="icon"
               className="absolute right-0 z-10 text-white -translate-y-1/2 top-1/2 bg-white/10 hover:bg-white/20"
               onClick={() => scroll("right")}
             >
               <ChevronRight className="w-6 h-6" />
-            </Button>
+            </ButtonHome>
           </div>
         </div>
       </section>
@@ -138,7 +139,7 @@ const Home = () => {
                     <div className="w-full md:w-1/3">
                       <div className="relative aspect-[4/3]">
                         <Image
-                          src={category.image || "/placeholder.svg"}
+                          src={`/${category.image}`}
                           alt={category.title}
                           layout="fill"
                           objectFit="cover"
@@ -168,6 +169,4 @@ const Home = () => {
     </div>
   )
 }
-
-export default Home;
 
