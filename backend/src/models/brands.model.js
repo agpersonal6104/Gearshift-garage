@@ -16,6 +16,9 @@ const brandSchema = new Schema(
     country_of_origin: {
       type: String,
     },
+    founded:{
+      type: Date,
+    }
   },
   { timestamps: true }
 );
