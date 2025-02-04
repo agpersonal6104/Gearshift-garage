@@ -67,10 +67,9 @@ return (
 <img src="RollsRoyceLaRoseNoireDroptail.jpg" alt="RollsRoyceLaRoseNoireDroptail" className='object-cover transition-transform duration-500 ease-in-out rounded-xl tranform hover:scale-110' />
 </div>
 
-<div className='w-2/3 px-6 border-l-2 border-white'>
-<h2 className='pt-4 pb-16 text-5xl text-white underline'>MOST EXPENSIVE</h2>
-<p className='py-8 text-5xl italic text-white'>SMALL DESCRIPTION ON THE MOST 
-EXPENSIVE MODELS.</p>
+<div className='w-full px-6 border-l-2 border-white md:w-2/3'>
+  <h2 className='pt-4 pb-16 text-3xl text-white underline md:text-5xl'>MOST EXPENSIVE</h2>
+  <p className='py-8 text-xl italic text-white md:text-5xl'>SMALL DESCRIPTION ON THE MOST EXPENSIVE MODELS.</p>
 </div>
 
 </div>
@@ -79,16 +78,20 @@ EXPENSIVE MODELS.</p>
 
 <div className='w-full'>
 
-<div className='flex h-[45vh] gap-6'>
+<div className='w-full'>
 
-<div className='w-2/3 px-6 border-r-2 border-white'>
-<h2 className='pt-4 pb-16 text-5xl text-right text-white underline'>FASTEST</h2>
-<p className='py-8 text-5xl italic text-right text-white'>SMALL DESCRIPTION ON FASTEST MODELS.</p>
-</div>
+  <div className='flex flex-col h-auto gap-6 md:flex-row md:h-[45vh]'>
 
-<div className='items-center justify-center flex-shrink-0 w-1/3 m-4 mx-auto my-auto overflow-hidden text-center transition-transform duration-300 ease-in-out shadow-lg rounded-xl hover:shadow-2xl'>
-<img src="2021-Koenigsegg-Jesko-Absolut.jpg" alt="KoenigseggJeskoAbsolut" className='object-cover transition-transform duration-500 ease-in-out rounded-xl tranform hover:scale-110' />
-</div>
+    <div className='w-full px-6 border-r-2 border-white md:w-2/3'>
+      <h2 className='pt-4 pb-16 text-3xl text-right text-white underline md:text-5xl'>FASTEST</h2>
+      <p className='py-8 text-xl italic text-right text-white md:text-5xl'>SMALL DESCRIPTION ON FASTEST MODELS.</p>
+    </div>
+
+    <div className='items-center justify-center flex-shrink-0 w-full m-4 mx-auto my-auto overflow-hidden text-center transition-transform duration-300 ease-in-out shadow-lg rounded-xl hover:shadow-2xl md:w-1/3'>
+      <img src="2021-Koenigsegg-Jesko-Absolut.jpg" alt="KoenigseggJeskoAbsolut" className='object-cover transition-transform duration-500 ease-in-out transform rounded-xl hover:scale-110' />
+    </div>
+
+  </div>
 
 </div>
 
