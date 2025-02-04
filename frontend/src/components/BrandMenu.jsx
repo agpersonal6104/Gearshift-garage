@@ -39,25 +39,15 @@
 // export default BrandMenu;
 
 "use client"
-import Link from "next/link"
 
 const BrandMenu = () => {
-  const brands = ["BMW", "Mercedes", "Audi", "Porsche", "Ferrari", "Lamborghini"]
-
   return (
-    <nav className="p-4 bg-gray-800">
-      <ul className="flex justify-center space-x-6">
-        {brands.map((brand) => (
-          <li key={brand}>
-            <Link href={`/brands/${brand.toLowerCase()}`}>
-              <span className="text-white transition-colors duration-200 hover:text-gray-300">{brand}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="w-full p-4 text-white bg-gray-800">
+      <h2 className="mb-2 text-2xl font-bold">Brand Menu</h2>
+      <p>This is a placeholder for the BrandMenu component.</p>
+    </div>
   )
 }
 
-export default BrandMenu
+export default BrandMenu;
 

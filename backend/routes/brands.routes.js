@@ -5,6 +5,7 @@ import {
     removeBrand
 } from '../src/controllers/brand.controller.js'
 import { upload } from '../src/middlewares/multer.middleware.js';
+import { Model } from 'mongoose';
 
 const router=Router()
 // middleware is applied to all the routes
@@ -15,6 +16,8 @@ router.route("/add-brand").post(upload.single("logo"),
 router.route("/remove-brand").post(removeBrand);
 
 
-
+router.get('/', (req, res) => {
+    Model.find
+});
 
 export default router

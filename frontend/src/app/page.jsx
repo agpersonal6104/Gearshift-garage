@@ -1,9 +1,11 @@
-"use client";
+"use client"
+
 import { useRef } from "react"
 import dynamic from "next/dynamic"
+import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { ButtonHome } from "@/components/ButtonA"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/Card"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
 // Dynamically import BrandMenu with no SSR
 const BrandMenu = dynamic(() => import("@/components/BrandMenu"), { ssr: false })
@@ -29,9 +31,9 @@ const categories = [
 ]
 
 export default function Home() {
-  const sliderRef = useRef(null)
+  const sliderRef = useRef<HTMLDivElement>(null)
 
-  const scroll = (direction) => {
+  const scroll = (direction: "left" | "right") => {
     if (sliderRef.current) {
       const scrollAmount = direction === "left" ? -400 : 400
       sliderRef.current.scrollBy({
@@ -72,14 +74,14 @@ export default function Home() {
         <div className="container px-4 mx-auto">
           <h2 className="mb-8 text-4xl font-bold text-white">Featured Brands</h2>
           <div className="relative">
-            <ButtonHome
+            <Button
               variant="ghost"
               size="icon"
               className="absolute left-0 z-10 text-white -translate-y-1/2 top-1/2 bg-white/10 hover:bg-white/20"
               onClick={() => scroll("left")}
             >
               <ChevronLeft className="w-6 h-6" />
-            </ButtonHome>
+            </Button>
 
             <div
               ref={sliderRef}
@@ -99,8 +101,8 @@ export default function Home() {
                       <Image
                         src={brand.image || "/placeholder.svg"}
                         alt={`${brand.name} vehicles`}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        className="object-cover"
                       />
                     </div>
                   </CardHeader>
@@ -112,14 +114,14 @@ export default function Home() {
               ))}
             </div>
 
-            <ButtonHome
+            <Button
               variant="ghost"
               size="icon"
               className="absolute right-0 z-10 text-white -translate-y-1/2 top-1/2 bg-white/10 hover:bg-white/20"
               onClick={() => scroll("right")}
             >
               <ChevronRight className="w-6 h-6" />
-            </ButtonHome>
+            </Button>
           </div>
         </div>
       </section>
@@ -141,9 +143,8 @@ export default function Home() {
                         <Image
                           src={`/${category.image}`}
                           alt={category.title}
-                          layout="fill"
-                          objectFit="cover"
-                          className="transition-transform duration-500 ease-in-out hover:scale-110"
+                          fill
+                          className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
                         />
                       </div>
                     </div>
