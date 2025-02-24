@@ -48,41 +48,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-constant Brand {
-  id: number;
-  name: string;
-  logo: string;
-  models: string[];
-}
-
-const brands: Brand[] = [
-  {
-    id: 1,
-    name: "BMW",
-    logo: "/placeholder.svg?height=60&width=60",
-    models: ["M3", "M4", "M5"],
-  },
-  {
-    id: 2,
-    name: "Mercedes",
-    logo: "/placeholder.svg?height=60&width=60",
-    models: ["AMG GT", "C63", "E63"],
-  },
-  {
-    id: 3,
-    name: "Audi",
-    logo: "/placeholder.svg?height=60&width=60",
-    models: ["RS6", "RS7", "R8"],
-  },
-  {
-    id: 4,
-    name: "Porsche",
-    logo: "/placeholder.svg?height=60&width=60",
-    models: ["911", "Cayman", "Taycan"],
-  },
-];
-
 export function BrandMenu() {
+
+  const getBrands = () => {
+  };
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [selectedModel, setSelectedModel] = React.useState<string | null>(null);
 
